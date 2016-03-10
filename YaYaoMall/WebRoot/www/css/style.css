@@ -1,0 +1,53 @@
+/* Empty. Add your own CSS if you like */
+.fixed-footer{
+	position: fixed;
+}
+.fixed-title{
+	position: fixed;
+}
+ .slider {
+      height: 100%;
+    }
+    .slider-slide {
+      padding-top: 44px;
+      color: #000;
+      background-color: #fff;
+      text-align: center;
+
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+      font-weight: 300;
+    }
+
+   /*  .blue {
+    height:128px;
+      background-color: blue;
+    }
+
+    .yellow {
+    height: 128px;
+      background-color: yellow;
+    }
+
+    .pink {
+    height: 128px;
+      background-color: pink;
+    }  */
+    .slideimg{
+    height: 128px;
+    width: 100%;
+    } 
+  .home3{
+  color: #666;
+  }
+ .home3 i{
+ display: inline-block;
+ height:30px;
+ width:30px;
+ border:0px solid red;
+ border-radius:15px;
+ background-color: red;
+ color: white;
+ font-size: 20px;
+ line-height: 30px;
+ margin-bottom: 10px;
+ }
