@@ -5,18 +5,31 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
+  
+	<script type="text/javascript">
+    var kaiping=document.getElementsByTagName('html');
+    kaiping[0].style.display="none";
+  //延迟关闭开屏
+    setTimeout(function() {
+       	document.getElementById('zhezhao').style.display="none";
+       		  },500);
+	</script>
     <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <!-- <script src="cordova.js"></script> -->
-    
     </head>
     <body ng-app="ionicApp">
-    <!-- 首页header -->
+    <!-- 开屏 -->
+  <div  class="zhezhao" id="zhezhao" style="height:100%;position: fixed;left: 0;top: 0;z-index:99999;">
+  <img alt="icon" style="height:100%;width:100%;" src="http://wd.geilicdn.com/vshop333816149-1457602899113-8730418.jpg?w=400&h=400&cp=1">
+  </div>
+      <!-- 开屏end -->
+    
+    <!-- 购物header -->
     <div class="bar bar-header fixed-title has-tabs-top bar-positive">
   	   <button class="button button-clear">
         本真茶园
@@ -30,8 +43,8 @@
         <i class="icon ion-search"></i>
       </button>
     </div>
-    <!-- end首页header-->
-    <!-- 首页轮播-->
+    <!-- end购物header-->
+    <!-- 购物轮播-->
     <div  animation="slide-left-right-ios7" ng-controller="SlideController">
     <ion-slide-box active-slide="myActiveSlide" auto-play="true" does-continue="true">
     <ion-slide>
@@ -51,8 +64,8 @@
 	</ion-slide>
   </ion-slide-box>
     </div>
-    <!-- end首页轮播-->
-    <!-- 首页九宫格-->
+    <!-- end购物轮播-->
+    <!-- 购物九宫格-->
     <div class="row text-center home3">
   <div class="col">
   <i class="icon ion-social-yen" style="background-color:maroon;"></i>
@@ -83,9 +96,69 @@
 </div>
   
 </div>
-    
-    <!-- end首页九宫格-->
-    
+    <!-- end购物九宫格-->
+    <!-- 购物热门推荐虚线-->
+    <div class="row rmtjxx">
+    <div class="col"><hr/></div>
+    <div class="col rmtjxx-c">热门推荐</div>
+    <div class="col"><hr/></div>
+    </div>
+    <!-- end购物热门推荐虚线-->
+    <!-- 购物热门推荐商品-->
+    <div class=" rmtjsp" ng-controller="rmtjsp">
+      <div class="list card">
+        <a class="item item-thumbnail-left " href="http://weidian.com/item.html?itemID=1759015038&p=-1">
+          <img src="http://wd.geilicdn.com/vshop333816149-1457337325594-5905666.jpg?w=400&h=400&cp=1">
+          <h3 class="goods-title">【包邮】【送茶刀】湖南安化黑茶 金花茯砖茶 施兆鹏八十大寿寿礼茶 收藏茶1936g</h3>
+          <p>原价：<span class="goods-price">¥3980.00</span>
+          </p>
+          <p>
+          <span class="goods-relprice">惊爆价：¥2980.00</span>
+    	  </p>
+        </a>
+      </div>
+      
+      <div class="list card" ng-repeat="person in list">
+     <!--  <div ng-model="person.id">{{person.id}}</div>
+      <div ng-model="person.age">{{person.age}}</div>
+      <div ng-model="person.name">{{person.name}}</div> -->
+      <a class="item item-thumbnail-left " href="http://weidian.com/item.html?itemID=1759015038&p=-1">
+          <img src="http://wd.geilicdn.com/vshop333816149-1457337325594-5905666.jpg?w=400&h=400&cp=1">
+          <h3 class="goods-title">【包邮】【送茶刀】湖南安化黑茶 金花茯砖茶 施兆鹏八十大寿寿礼茶 收藏茶1936g</h3>
+          <p>原价：<span class="goods-price">¥3980.00</span>
+          </p>
+          <p>
+          <span class="goods-relprice">惊爆价：¥2980.00</span>
+    	  </p>
+      </a>
+      </div>
+   <!--    <div class="list card">
+         <a class="item item-thumbnail-left" href="http://weidian.com/item.html?itemID=1750072037&p=-1">
+          <img src="http://wd.geilicdn.com/vshop333816149-1457602899113-8730418.jpg?w=400&h=400&cp=1">
+          <h2 class="goods-title">【预定】湘丰茶叶 全网独家售卖 2016新采绿茶 惠茶 清香型 100克/包</h2>
+          <p>原价：<span class="goods-price">¥69.00</span>
+          </p>
+          <p>
+          <span class="goods-relprice">惊爆价：¥39.00</span>
+    	  </p>
+        </a>
+      </div>
+      <div class="list card">
+         <a class="item item-thumbnail-left" href="http://weidian.com/item.html?itemID=1740085958&p=-1">
+          <img src="http://wd.geilicdn.com/vshop333816149-1457436486821-74310-s1.jpg?w=400&h=400&cp=1">
+          <h2 class="goods-title">【预售】湘丰茶叶 “为人民服务” 2016年新茶 湖南绿茶 壶瓶山云雾毛尖茶50g</h2>
+          <p>原价：<span class="goods-price">¥168.00</span>
+          </p>
+          <p>
+          <span class="goods-relprice">惊爆价：¥78.00</span>
+    	  </p>
+        </a>
+      </div> -->
+      <div class="down-refresh" ng-show="downRefresh">
+  <ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>
+      </div>
+
+    </div>
     
     <!-- <div class="content has-header ionic-pseudo">
 
@@ -151,38 +224,63 @@
     </div> -->
    
    <!--  <div ng-include="templates/tab-dash.html"></div> -->
-    <div class="bar bar-footer fixed-footer tabs-striped tabs-color-assertive">
-      <div class="tabs tabs-icon-top">
-        <a class="tab-item active" href="#">
+    <div class="bar bar-footer fixed-footer tabs-striped tabs-color-assertive" >
+      <div class="tabs tabs-icon-top" >
+        <a class="tab-item active" href="#/tab/dash">
           <i class="icon ion-android-home"></i>
          购物
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item" href="#/tab/chats">
           <i class="icon ion-search"></i>
          分类
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item" href="#/tab/account">
           <i class="icon ion-person-stalker"></i>
           购物圈
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item" href="#/tab/cat">
           <i class="icon ion-ios-cart"></i>
           购物车
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item" href="#/tab/person">
           <i class="icon ion-person"></i>
           个人中心
         </a>
       </div>
     </div>
+   
+  
   </body>
   <script type="text/javascript">
-  angular.module('ionicApp', ['ionic'])
-
-  .controller('SlideController', function($scope) {
+  kaiping[0].style.display='block';
+  var app=angular.module('ionicApp', ['ionic']);
+  app.controller('SlideController', function($scope) {
     
     $scope.myActiveSlide = 0;
     
-  }) 
+  }) ;
+  app.controller('rmtjsp',function($scope, $timeout){
+	  $scope.downRefresh=false;
+  $scope.list=[{id:100,age:30,name:"张三"}];
+	  $scope.$watch(function(){
+	 // alert(sh)
+			  if(document.body.scrollTop+window.screen.height>document.body.scrollHeight)
+			  {
+	   /*  alert(document.body.scrollTop);
+	  alert(window.screen.height);
+	  alert(document.body.scrollHeight); */  
+				  $scope.downRefresh=true;
+				  var obj={id:101,age:30,name:"李四"};
+	         //alert('bottom');
+	            $timeout(function(){
+				  $scope.list.push(obj);
+				  $scope.downRefresh=false;
+	            	
+	            },500);
+	    }
+	  }
+	  );
+  });
   </script>
+  
 </html>

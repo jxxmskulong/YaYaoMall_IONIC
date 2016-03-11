@@ -1,4 +1,4 @@
-<ion-view view-title="Dashboard">
+<!-- <ion-view view-title="Dashboard">
   <ion-content class="padding">
     <h2>Welcome to Ionic</h2>
     <p>
@@ -15,3 +15,89 @@
     </p>
   </ion-content>
 </ion-view>
+ -->
+ <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="../lib/ionic/js/ionic.bundle.js"></script>
+ <div ng-app="ionicApp">
+  <!-- 首页header -->
+    <div class="bar bar-header fixed-title has-tabs-top bar-positive">
+  	   <button class="button button-clear">
+        本真茶园
+      </button>
+  	  <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="text" placeholder="黑茶">
+      </label>
+	  
+	   <button class="button button-clear">
+        <i class="icon ion-search"></i>
+      </button>
+    </div>
+    <!-- end首页header-->
+    <!-- 首页轮播-->
+    <div  animation="slide-left-right-ios7" ng-controller="SlideController">
+    <ion-slide-box active-slide="myActiveSlide" auto-play="true" does-continue="true">
+    <ion-slide>
+	  <div class="box blue">
+	  <img class="slideimg" src="http://www.yayao8.com/resources/img/carousel/carousel2.jpg">
+	  </div>
+	</ion-slide>
+	<ion-slide>
+	  <div class="box yellow">
+	  <img class="slideimg" src="http://www.yayao8.com/resources/img/carousel/carousel1.jpg">
+	  </div>
+	</ion-slide>
+	<ion-slide>
+	  <div class="box pink">
+	  <img class="slideimg" src="http://www.yayao8.com/resources/img/carousel/carousel3.jpg">
+	  </div>
+	</ion-slide>
+  </ion-slide-box>
+    </div>
+    <!-- end首页轮播-->
+    <!-- 首页九宫格-->
+    <div class="row text-center home3">
+  <div class="col">
+  <i class="icon ion-social-yen" style="background-color:maroon;"></i>
+        <br/>新人礼包
+</div>
+  <div class="col">
+<i class="icon ion-social-freebsd-devil" style="background-color:orange;" ></i>
+         <br/> 物美价廉
+</div>
+  <div class="col">
+<i class="icon ion-earth" style="background-color:purple;"></i>
+          <br/>免费专区
+</div>
+</div>
+
+<div class="row text-center home3">
+  <div class="col col-top">
+<i class="icon ion-ios-flame"></i>
+          <br/>TOP热卖
+</div>
+  <div class="col col-center">
+<i class="icon ion-leaf" style="background-color: green;"></i>
+           <br/>茶艺文化
+</div>
+  <div class="col col-bottom">
+<i class="icon ion-android-train" style="background-color:navy; "></i>
+          <br/>包邮专区
+</div>
+  
+</div>
+    
+ </div>
+    <!-- end首页九宫格-->
+    <script type="text/javascript">
+  angular.module('ionicApp', ['ionic'])
+
+  .controller('SlideController', function($scope) {
+    
+    $scope.myActiveSlide = 0;
+    
+  }) 
+  </script>

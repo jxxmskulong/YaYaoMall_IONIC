@@ -1,10 +1,18 @@
-/* Empty. Add your own CSS if you like */
+/*
+**底部导航固定
+*/
 .fixed-footer{
 	position: fixed;
 }
+/*
+**顶部导航固定
+*/
 .fixed-title{
 	position: fixed;
 }
+/*
+**购物轮播图
+*/
  .slider {
       height: 100%;
     }
@@ -18,24 +26,13 @@
       font-weight: 300;
     }
 
-   /*  .blue {
-    height:128px;
-      background-color: blue;
-    }
-
-    .yellow {
-    height: 128px;
-      background-color: yellow;
-    }
-
-    .pink {
-    height: 128px;
-      background-color: pink;
-    }  */
     .slideimg{
     height: 128px;
     width: 100%;
     } 
+/*
+**购物九宫格
+*/ 
   .home3{
   color: #666;
   }
@@ -51,3 +48,39 @@
  line-height: 30px;
  margin-bottom: 10px;
  }
+ /*
+**热门推荐虚线
+*/
+.rmtjxx{
+	margin-top:20px !important;
+	
+}
+.rmtjxx-c{
+	text-align: center;
+	color:#666;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+/*
+**热门推荐主体商品
+*/
+.rmtjsp{
+	margin-bottom:50px !important;
+}
+.goods-title{
+white-space:normal !important;
+}
+.goods-price{
+	text-decoration: line-through;
+}
+.goods-relprice{
+	color:red !important;
+}
+/*
+**热门推荐主体商品下拉刷新
+*/
+.down-refresh{
+	text-align: center;
+	line-height: 33px;
+}
