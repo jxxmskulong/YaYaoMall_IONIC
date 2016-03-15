@@ -38,6 +38,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
         $ionicConfigProvider.platform.ios.views.transition('ios'); 
         $ionicConfigProvider.platform.android.views.transition('android');
+       
+        $ionicConfigProvider.scrolling.jsScrolling(true);
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.

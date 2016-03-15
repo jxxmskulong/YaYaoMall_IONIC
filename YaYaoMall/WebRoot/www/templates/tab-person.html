@@ -3,12 +3,14 @@
 <ion-header-bar align-title="center" class="bar-positive">
   <h1 class="title">我</h1>
 </ion-header-bar>
-<ion-content>
+<ion-content >
    <div class="has-header ionic-pseudo">
       <div class="list">
         <a class="item item-avatar" ng-click="openModal()" href="#">
           <img src="http://www.runoob.com/try/demo_source/venkman.jpg">
           <h2>Venkman</h2>
+           <span class="item-note">点击登录></span>
+          
           <p>添加个性签名</p>
         </a>
       </div>
@@ -38,27 +40,34 @@
 
 <div class="jiugongge">
   <div>
-     <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:#ec3;"></i>订单</a>
+     <a class="jiugongge-btn"><i class="icon ion-ios-list-outline" style="background-color:#ec3;"></i>订单</a>
   
-    <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:red;"></i>卡卷包</a>
+    <a class="jiugongge-btn"><i class="icon ion-ios-albums" style="background-color:red;"></i>卡卷包</a>
   
-    <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:green;"></i>积分</a>
+    <a class="jiugongge-btn"><i class="icon ion-social-reddit" style="background-color:green;"></i>积分</a>
   </div>
     <div>
-     <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:red;"></i>待付款</a>
+     <a class="jiugongge-btn"><i class="icon ion-social-yen" style="background-color:red;"></i>待付款</a>
   
-    <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:blue;"></i>待发货</a>
+    <a class="jiugongge-btn"><i class="icon ion-android-plane" style="background-color:blue;"></i>待发货</a>
   
-    <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:yellow;"></i>待收货</a>
+    <a class="jiugongge-btn"><i class="icon ion-briefcase" style="background-color:yellow;"></i>待收货</a>
   </div>  
      <div>
-     <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:yellow;"></i>待评价</a>
+     <a class="jiugongge-btn"><i class="icon ion-chatbubbles" style="background-color:yellow;"></i>待评价</a>
   
-    <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:green;"></i>我的收藏</a>
+    <a class="jiugongge-btn"><i class="icon ion-ios-briefcase" style="background-color:green;"></i>我的收藏</a>
   
-    <a class="jiugongge-btn"><i class="icon ion-chatbox-working" style="background-color:blue;"></i>会员中心</a>
+    <a class="jiugongge-btn"><i class="icon ion-android-person" style="background-color:blue;"></i>会员中心</a>
   </div> 
 </div>
+<ion-refresher on-refresh="doRefresh()"  
+            >  
+             <!-- pulling-text="正在加载..."   
+              refreshing-text="加载完成！"  
+            refreshing-icon="ion-loading-b" -->
+                  
+            </ion-refresher>  
 </ion-content>
 </ion-view>
 
@@ -66,7 +75,7 @@
   <ion-modal-view>
         <ion-header-bar class="bar bar-header bar-positive">
           <h1 class="title">登录</h1>
-          <button class="button button-clear button-primary" ng-click="modal.hide()">取消</button>
+          <button class="button button-clear button-primary" ng-click="modal.remove()">取消</button>
         </ion-header-bar>
         <ion-content class="padding">
           <div class="list">
@@ -80,6 +89,7 @@
             </label>
           
             <button class="button button-full button-positive" ng-click="createContact(newUser)">登录</button>
+            还没账号？请先点击-><a ng-click="LoginToRegister()">注册</a>
           </div>
         </ion-content>
       </ion-modal-view>
@@ -89,7 +99,7 @@
   <ion-modal-view>
         <ion-header-bar class="bar bar-header bar-positive">
           <h1 class="title">注册</h1>
-          <button class="button button-clear button-primary" ng-click="modal.hide()">取消</button>
+          <button class="button button-clear button-primary" ng-click="modal.remove()">取消</button>
         </ion-header-bar>
         <ion-content class="padding">
           <div class="list">
@@ -99,11 +109,11 @@
             </label>
             <label class="item item-input">
               <span class="input-label">密码</span>
-              <input ng-model="newUser.lastName" type="password">
+              <input ng-model="newUser.password" type="password">
             </label>
             <label class="item item-input">
               <span class="input-label">重复密码</span>
-              <input ng-model="newUser.lastName" type="password">
+              <input ng-model="newUser.password2" type="password">
             </label>
             <button class="button button-full button-positive" ng-click="createContact(newUser)">提交</button>
           </div>

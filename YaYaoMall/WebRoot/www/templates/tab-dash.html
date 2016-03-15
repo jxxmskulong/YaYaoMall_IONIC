@@ -13,7 +13,7 @@
       </button>
 </ion-header-bar>
 <!-- end购物header-->
-<ion-content>
+<ion-content >
     <!-- 购物轮播-->
      <div animation="slide-left-right-ios7">
     <ion-slide-box active-slide="myActiveSlide" auto-play="true" does-continue="true">
@@ -76,7 +76,7 @@
     <!-- end购物热门推荐虚线-->
     <!-- 购物热门推荐商品-->
     <div class=" rmtjsp">
-      <div class="list card">
+      <div class="list card" ng-repeat="person in list">
         <a class="item item-thumbnail-left " href="http://weidian.com/item.html?itemID=1759015038&p=-1">
           <img src="http://wd.geilicdn.com/vshop333816149-1457337325594-5905666.jpg?w=400&h=400&cp=1">
           <h3 class="goods-title">【包邮】【送茶刀】湖南安化黑茶 金花茯砖茶 施兆鹏八十大寿寿礼茶 收藏茶1936g</h3>
@@ -87,25 +87,14 @@
         </p>
         </a>
       </div>
-      
-      <div class="list card" ng-repeat="person in list">
-     <!--  <div ng-model="person.id">{{person.id}}</div>
-      <div ng-model="person.age">{{person.age}}</div>
-      <div ng-model="person.name">{{person.name}}</div> -->
-      <a class="item item-thumbnail-left " href="http://weidian.com/item.html?itemID=1759015038&p=-1">
-          <img src="http://wd.geilicdn.com/vshop333816149-1457337325594-5905666.jpg?w=400&h=400&cp=1">
-          <h3 class="goods-title">【包邮】【送茶刀】湖南安化黑茶 金花茯砖茶 施兆鹏八十大寿寿礼茶 收藏茶1936g</h3>
-          <p>原价：<span class="goods-price">¥3980.00</span>
-          </p>
-          <p>
-          <span class="goods-relprice">惊爆价：¥2980.00</span>
-        </p>
-      </a>
-      </div>
        <div class="down-refresh" ng-show="downRefresh">
             <ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>
           </div>  
 
     </div>
+
     </ion-content>
 </ion-view>
+
+
+

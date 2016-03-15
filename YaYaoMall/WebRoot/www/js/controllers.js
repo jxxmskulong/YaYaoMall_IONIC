@@ -1,30 +1,24 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,$timeout) {
+.controller('DashCtrl', function($scope,$interval) {
     $scope.myActiveSlide = 0;
     $scope.downRefresh=false;
-  $scope.list=[{id:100,age:30,name:"张三"}];
-   $scope.$watch(function(){
-   //alert('sh')
-        if(document.body.scrollTop+window.screen.height>document.body.scrollHeight)
-        {
-          //alert('sh')
-       /*alert(document.body.scrollTop);
-    alert(window.screen.height);
-    alert(document.body.scrollHeight); */ 
-          $scope.downRefresh=true;
-          var obj={id:101,age:30,name:"李四"};
-          //alert('bottom');
-              $timeout(function(){
-         //$scope.list.push(obj);
-         $scope.downRefresh=false;
-                
-              },5000);
-      }
-    }
-
-    );
-
+  $scope.list=[{id:100,age:30,name:"张三"},{},{}];
+	  $scope.downRefresh=true;
+	  var setInter=$interval(function(){
+		  if($scope.list.length<8){  
+	          var obj=[{id:101,age:30,name:"李四"},{},{},{}];
+	          console.log(obj);
+	        $scope.list.push(obj);
+		  }else{
+	        	$scope.downRefresh=false;
+	        	console.log("没有更多了");
+	        	//clearInterval(setInter);
+	        	$interval.cancel(setInter);
+	        }
+	         //$scope.downRefresh=false;
+	  },2000);
+	
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
@@ -56,23 +50,41 @@ angular.module('starter.controllers', [])
  $scope.aaa="sdaf";
  alert("dfdf");
 })
-.controller('PersonCtrl', function($scope,$ionicModal) {
+.controller('PersonCtrl', function($scope,$ionicModal,$timeout) {
   //alert($ionicModal.modal.show());
   var urlR=["tab-register.html","tab-login.html"];
   var a=3;
   var urli="";
   if(a>2){
-    urli=urlR[0];
+    urli=urlR[1];
   }
   console.log(urli);
- $ionicModal.fromTemplateUrl(urli, {
-    scope: $scope,
-    animation: 'silde-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+ $scope.LoginToRegister = function() {
+	  urli=urlR[0];
+	  console.log(urli); 
+	  $scope.modal.remove();
+	  $ionicModal.fromTemplateUrl(urli, {
+		    scope: $scope,
+		    animation: 'silde-in-up'
+		  }).then(function(modal) {
+		    $scope.modal = modal;
+		    $scope.modal.show();
+	});
+  };
   $scope.openModal = function() {
-     $scope.modal.show();
+	  if($scope.modal!=null||$scope.modal!=undefined){
+		  console.log($scope.modal);
+		  $scope.modal.remove();
+		  
+	  }
+	  urli=urlR[1];
+	  $ionicModal.fromTemplateUrl(urli, {
+		    scope: $scope,
+		    animation: 'silde-in-up'
+		  }).then(function(modal) {
+		    $scope.modal = modal;
+		    $scope.modal.show();
+		  });
    };
   $scope.closeModal = function() {
      $scope.modal.hide();
@@ -91,6 +103,20 @@ angular.module('starter.controllers', [])
    // 当移动模型时执行动作
    $scope.$on('modal.removed', function() {
      // 执行动作
-     alert('removed')
+     //alert('removed')
    });
+   
+   $scope.doRefresh = function() {  
+	   $scope.items = ['Item 1', 'Item 2', 'Item 3']; 
+	    console.log('Refreshing!');  
+	    $timeout( function() {  
+	      //simulate async response  
+	      $scope.items.push('New Item ' + Math.floor(Math.random() * 1000) + 4);  
+	      console.log($scope.items);
+	      //Stop the ion-refresher from spinning  
+	      $scope.$broadcast('scroll.refreshComplete');  
+	      
+	    }, 1000);  
+	        
+	  };  
 });
