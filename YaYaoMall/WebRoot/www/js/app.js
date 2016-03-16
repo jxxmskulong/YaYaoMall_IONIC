@@ -39,7 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         $ionicConfigProvider.platform.ios.views.transition('ios'); 
         $ionicConfigProvider.platform.android.views.transition('android');
        
-        $ionicConfigProvider.scrolling.jsScrolling(true);
+        /*$ionicConfigProvider.scrolling.jsScrolling(true);*/
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -115,3 +115,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $urlRouterProvider.otherwise('/tab/dash');
 
 });
+/*.directive('fileModel', ['$parse', function ($parse) {
+	  return {
+		    restrict: 'A',
+		    link: function(scope, element, attrs, ngModel) {
+		      var model = $parse(attrs.fileModel);
+		      var modelSetter = model.assign;
+		      element.bind('change', function(event){
+		        scope.$apply(function(){
+		          modelSetter(scope, element[0].files[0]);
+		        });
+		        //附件预览
+		           scope.file = (event.srcElement || event.target).files[0];
+		        scope.getFile();
+		      });
+		    }
+		  };
+		}]);*/
