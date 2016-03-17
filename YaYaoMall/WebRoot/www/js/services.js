@@ -47,4 +47,12 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+//设置字符服务
+.constant("mycheckTextService",function(setusernicename,num){
+	        if (setusernicename.length>num) {
+	        	return "最多输入"+num+"位数";
+	        }else{
+	        	return "";
+	        }
 });

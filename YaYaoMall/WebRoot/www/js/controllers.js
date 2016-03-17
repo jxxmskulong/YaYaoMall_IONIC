@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,$interval) {
+.controller('shoppingCtrl', function($scope,$interval) {
     $scope.myActiveSlide = 0;
     $scope.downRefresh=false;
   $scope.list=[{id:100,age:30,name:"张三"},{},{}];
@@ -21,7 +21,7 @@ angular.module('starter.controllers', [])
 	
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('classificationCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('shoppingCircleCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
   };
@@ -50,17 +50,20 @@ angular.module('starter.controllers', [])
  $scope.aaa="sdaf";
  alert("dfdf");
 })
-.controller('PersonCtrl', function($scope,$ionicModal,$timeout) {
-  //alert($ionicModal.modal.show());
+.controller('PersonCtrl', function($scope,$ionicModal,$timeout,mycheckTextService) {
+	//初始化
 	$scope.haveImg=false;
 	$scope.user={};
 	 $scope.user.userimg='http://www.runoob.com/try/demo_source/venkman.jpg';
-	 $scope.user.username='聂跃';
+	 $scope.user.username='278076304@qq.com';
 	 $scope.user.usersignature='快乐知足常乐！';
-	 $scope.user.useremail='278076304@qq.com';
+	 $scope.user.usernicename='聂跃';
+	 $scope.user.setusernicename=$scope.user.usernicename;
+	 $scope.user.setusersignature=$scope.user.usersignature;
+	 
 	 
 	console.log($scope.user.userimg);
-	
+	//模型
 	function showModal(urli){
 		$ionicModal.fromTemplateUrl(urli, {
 		    scope: $scope,
@@ -72,10 +75,9 @@ angular.module('starter.controllers', [])
 	}
 	//登录转注册
  $scope.LoginToRegister = function() {
-	  var urli="tab-register.html";
-	  console.log(urli); 
+	  console.log("tab-register.html"); 
 	  $scope.modal.remove();
-	  showModal(urli);
+	  showModal("tab-register.html");
   };
   //登录
   $scope.openLogin = function() {
@@ -84,12 +86,31 @@ angular.module('starter.controllers', [])
 		  $scope.modal.remove();
 		  
 	  }
-	 var urli="tab-login.html";
-	  showModal(urli);
+	  showModal("tab-login.html");
    };
+   //打开用户信息
    $scope.openUserInfo=function() {
-	   var urli="tab-userinfo.html";
-	   showModal(urli);
+	   if($scope.modal!=null||$scope.modal!=undefined){
+			  console.log($scope.modal);
+			  $scope.modal.remove();
+			  
+		  }
+	   showModal("tab-userinfo.html");
+   };
+   //设置昵称页面
+   $scope.UserInfoToUserNiceName=function() {
+	   $scope.modal.remove();
+	   showModal("tab-usernicename.html");
+   };
+   //设置个性签名页面
+   $scope.UserInfoToUserSignature=function() {
+			  $scope.modal.remove();
+	   showModal("tab-usersignature.html");
+   };
+   //设置收货地址管理
+   $scope.UserInfoToShippingAddress=function() {
+	   $scope.modal.remove();
+	   showModal("tab-shippingaddress.html");
    };
   $scope.closeModal = function() {
      $scope.modal.hide();
@@ -124,21 +145,73 @@ angular.module('starter.controllers', [])
 	    }, 1000);  
 	        
 	  }; 
+	  //控制字符数
+	  $scope.usernicenamecheck=function(num){
+		  $scope.usernicenameerror=mycheckTextService($scope.user.setusernicename,num);
+	  } 
+	  $scope.usersignaturecheck=function(num){
+		  $scope.usersignatureerror=mycheckTextService($scope.user.setusersignature,num);
+	  } 
+	 //设置昵称更新同步base
+	  /*function myuserUpdateInfo(num,name,setname,usererror){
+		  if (setname.length<=num) {
+			  name=setname;
+			  $scope.openUserInfo();
+		  }else{
+			  setname=name;
+			usererror='';
+		  }
+	  };*/
+	  /* $scope.saveusernicename=function(num){
+	    	myuserUpdateInfo(num,$scope.user.usernicename,$scope.user.setusernicename,$scope.usernicenameerror);
+	    };*/
 	  
-	  $scope.checkText = function () {
-		  console.log($scope.text);
-	        if (document.querySelector('#email').value.length>5) {
-	            //console.log("text is too long2");
-	            document.querySelector('#email').value = document.querySelector('#email').value.substr(0, 5);
-	        	$scope.emailerrorinfo="最多输入5位数";
-	        }else{
-	        	$scope.emailerrorinfo='';
-	        }
+   $scope.saveusernicename=function(num){
+	  if ($scope.user.setusernicename.length<=num) {
+	 $scope.user.usernicename=$scope.user.setusernicename;
+	 $scope.openUserInfo();
+	  }else{
+		  $scope.user.setusernicename=$scope.user.usernicename;
+		  $scope.usernicenameerror='';
+	  }
 	    };
+	    $scope.saveusersignature=function(num){
+	    	if ($scope.user.setusersignature.length<=num) {
+	    		$scope.user.usersignature=$scope.user.setusersignature;
+	    		$scope.openUserInfo();
+	    	}else{
+	    		$scope.user.setusersignature=$scope.user.usersignature;
+	    		$scope.usersignatureerror='';
+	    	}
+	    };
+	
+	    
+	    
+	    
 	    //头像图片上传
-	   userimgupload=function(file){
-	    	//document.getElementById('#userimg').click();
-	    	//console.log(file);
+	  userimgupload=function(file){
+		  photoExt=file.value.substr(file.value.lastIndexOf(".")).toLowerCase();//获得文件后缀名
+		//判断照片格式
+		  if(photoExt!='.jpg'&&photoExt!='.png'){
+		     alert("请上传后缀名为jpg/png的照片!");
+		      return false;
+		  }
+		  var fileSize = 0;
+		  var isIE = /msie/i.test(navigator.userAgent) && !window.opera;            
+		  if (isIE && !file.files) {          
+		       var filePath = file.value;            
+		       var fileSystem = new ActiveXObject("Scripting.FileSystemObject");   
+		       var file = fileSystem.GetFile (filePath);               
+		       fileSize = file.Size;         
+		  }else {  
+		       fileSize = file.files[0].size;     
+		  } 
+		  fileSize=Math.round(fileSize/1024*100/1024)/100; //单位为MB
+		  if(fileSize>=2){
+		      alert("图片大小为"+fileSize+"MB，超过最大尺寸为2MB，请重新上传!");
+		      return false;
+		  }		  
+		  //console.log(file);
 	    	if (file.files && file.files[0])  
 	    	 {
 	         var reader = new FileReader(); 
@@ -148,6 +221,7 @@ angular.module('starter.controllers', [])
 	      		$scope.$apply();
 	    	}
 	      	reader.readAsDataURL(file.files[0]);
+	      	$scope.haveImg=true;
 	      }else{
 	    	  $scope.user.userimg=file.value;
 	      		$scope.$apply();

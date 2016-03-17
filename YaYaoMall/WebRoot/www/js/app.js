@@ -55,22 +55,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.shopping', {
+    url: '/shopping',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-shopping': {
+        templateUrl: 'templates/tab-shopping.html',
+        controller: 'shoppingCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.classification', {
+      url: '/classification',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-classification': {
+          templateUrl: 'templates/tab-classification.html',
+          controller: 'classificationCtrl'
         }
       }
     })
@@ -84,12 +84,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.shoppingCircle', {
+    url: '/shoppingCircle',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-shoppingCircle': {
+        templateUrl: 'templates/tab-shoppingCircle.html',
+        controller: 'shoppingCircleCtrl'
       }
     }
   })
@@ -112,7 +112,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/shopping');
 
 });
 /*.directive('fileModel', ['$parse', function ($parse) {
