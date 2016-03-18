@@ -1,3 +1,15 @@
+
+/*
+**rest
+*/
+p{
+	text-indent: 2rem;
+	white-space:normal !important;
+}
+span{
+	font-size: 10px;
+	color: #999;
+}
 /*
 **input file
 */
@@ -182,3 +194,74 @@ padding:5%;
 	color:#ccc;
 	margin-top:0.5rem;
 }
+/*
+*购物车
+*/
+.cat-no-body{
+	margin-top:30%;
+}
+.cat-no-icon{
+	font-size:8rem;
+	margin:10% 35%;
+	color:#999;
+}
+.cat-no-font{
+	text-align: center;
+	font-size:0.8rem;
+}
+.cat-no-btn{
+	width:6rem;
+	margin: 10% 35%;
+}
+/*
+*分类
+*/
+.classification-left-ioncontent{
+	
+	 background-color: #E8E4E4; 
+}
+.classification-left{
+	display:inline-block;
+	width:30%;
+	background-color: #E8E4E4 !important;
+}
+.classification-left a{
+	background-color: #E8E4E4;
+	border: 0px solid #E8E4E4;
+}
+.classification-left a img{
+	max-width:30px !important;
+	max-height:30px !important;
+}
+.classification-left-title{
+	line-height: 30px;
+	margin-left: -20px;
+}
+.classification-right{
+	display:inline-block;
+	margin-left:30%;
+	width:70%;
+	background-color: #fff; 
+}
+.classification-right-div{
+	 height: 152px;
+	 padding:1% !important;
+}
+.classification-right-div a{
+	display:inline-block;
+	margin:1% !important;
+	height: 150px;
+	width:45%;
+	border: 0px solid #999;
+}
+
+.classification-right-div a p{
+	text-align: center;
+}
+.classification-right-div a img{
+	height: 66px;
+}
+
+/*
+*购物圈
+*/

@@ -21,20 +21,26 @@ angular.module('starter.controllers', [])
 	
 })
 
-.controller('classificationCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-    
-  };
+.controller('classificationCtrl', function($scope,$ionicModal) {
+	//模型
+	function showModal(urli){
+		$ionicModal.fromTemplateUrl(urli, {
+		    scope: $scope,
+		    animation: 'silde-in-up'
+		  }).then(function(modal) {
+		    $scope.modal = modal;
+		    $scope.modal.show();
+	});
+	}
+	  //选择商品
+	  $scope.showBlackTea = function() {
+		  if($scope.modal!=null||$scope.modal!=undefined){
+			  console.log($scope.modal);
+			  $scope.modal.remove();
+			  
+		  }
+		  showModal("tab-classification-right.html");
+	   };
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
@@ -47,8 +53,9 @@ angular.module('starter.controllers', [])
   };
 })
 .controller('CatCtrl', function($scope) {
- $scope.aaa="sdaf";
- alert("dfdf");
+ 
+	$scope.aaa="sdaf";
+
 })
 .controller('PersonCtrl', function($scope,$ionicModal,$timeout,mycheckTextService) {
 	//初始化
