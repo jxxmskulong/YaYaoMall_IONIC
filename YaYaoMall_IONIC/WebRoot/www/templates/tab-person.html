@@ -147,21 +147,21 @@
 			<input type="file" accept="image/*" onchange="userimgupload(this)" id="userimg"/>
             </a>
             <a class="item" ng-click="UserInfoToUserNiceName()">
-              <span class="user-information">昵称</span>
+              <div class="user-information">昵称</div>
               <div class="user-information-icon">></div>
               <div class="user-information-info">{{user.usernicename}}</div>
             </a>
             <a class="item" ng-click="UserInfoToUserSignature()">
-              <span class="user-information">个性签名</span>
+              <div class="user-information">个性签名</div>
               <div class="user-information-icon">></div>
               <div class="user-information-info">{{user.usersignature}}</div>
             </a>
             <a class="item">
-              <span class="user-information">邮箱</span>
+              <div class="user-information">邮箱</div>
               <div class="user-information-info">{{user.username}}</div>
             </a>
             <a class="item" ng-click="UserInfoToShippingAddress()">
-              <span class="user-information">收货地址</span>
+              <div class="user-information">收货地址</div>
               <div class="user-information-icon">></div>
             </a>
           </div>
@@ -222,7 +222,7 @@
         <ion-content class="padding">
        <div class="list">
             <a class="item" ng-click="UserInfoToUserNiceName()">
-              <span class="user-information">收货人</span>
+              <div class="user-information">收货人</div>
               <div class="user-information-icon">></div>
               <div class="user-information-info">15111336587</div>
               <div class="user-information-info">收货地址</div>

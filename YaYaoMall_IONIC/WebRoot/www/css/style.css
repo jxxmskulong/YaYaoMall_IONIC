@@ -244,22 +244,22 @@ padding:5%;
 	background-color: #fff; 
 }
 .classification-right-div{
-	 height: 152px;
 	 padding:1% !important;
 }
 .classification-right-div a{
 	display:inline-block;
 	margin:1% !important;
-	height: 150px;
+	height: 166px;
 	width:45%;
 	border: 0px solid #999;
 }
 
-.classification-right-div a p{
-	text-align: center;
-}
 .classification-right-div a img{
 	height: 66px;
+}
+.classification-right-div a p{
+	text-indent:0;
+	text-align: center;
 }
 
 /*
